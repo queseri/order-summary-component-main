@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>ZIM Frame - Full Template</title>
+
+<!-- Welcome to ZIM at https://zimjs.com - Code Creativity!                              -->
+<!-- ZIM runs on the HTML Canvas powered by JavaScript and CreateJS https://createjs.com -->
+<!-- Founded by Inventor Dan Zen - http://danzen.com - Canadian New Media Award Winner   -->
+<!-- ZIM is free to use. You can donate to help improve ZIM at https://zimjs.com/donate  -->
+
+<script src="https://zimjs.org/cdn/nft/01/zim.js"></script>
+<!-- use zimjs.com/distill for minified individual functions! -->
+
+<script>
+
+// SCALING OPTIONS
+// scaling can have values as follows with full being the default
+// FIT		sets canvas and stage to dimensions and scales to fit inside window size
+// FILL		sets canvas and stage to dimensions and scales to fill window size
+// FULL		sets stage to window size with no scaling
+// "tagID"	add canvas to HTML tag of ID - set to dimensions if provided - no scaling
+
+var scaling = "full"; // makes stage the window size but does not scale content
+var color = yellow; // zim colors are now available globally 
+
+var frame = new Frame(scaling, null, null, color); // see docs for more options and info
+frame.on("ready", function() {
+	zog("ready from ZIM Frame");
+	
+	const stage = frame.stage;
+	const stageW = frame.width;
+	const stageH = frame.height;
+
+	// put your code here (you can delete this code)
+
+	const button = new Button(140, 60, "ZIM", dark, grey);
+	// will position and scale the code in the resize function at bottom
+	button.on("click", function() { // on() is like addEventListener()
+		zgo("http://zimjs.com/frame.html"); // or relative URL, target is available too
+	});
+
+	// put resizing code in here
+	// resize also gets called initially
+	frame.on("resize", resize);
+	function resize(e) {
+		//stageW = frame.width;
+		//stageH = frame.height;
+		// can redraw things at different sizes or use scaling here
+		button.scaleTo(stage, 20); // also see zim.Layout() for more complex scaling
+		button.center(); // centers on stage - addTo() and others as well!
+		stage.update();
+	}
+	resize();
+
+}); // end of ready
+</script>
+<meta name="viewport" content="width=device-width, user-scalable=no" />
+</head>
+<body>
+<!-- canvas with id="myCanvas" is made by zim Frame -->
+<div>
+	<h1>zimjs</h1>
+</div>
+</body>
+</html>
