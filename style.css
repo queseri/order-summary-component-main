@@ -104,8 +104,8 @@ body {
     background-image: url("./images/pattern-background-mobile.svg");
     background-color: var(--main-bg-color);
     background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
+    background-position: top;
+    background-size: 100% 45%;
 }
 
 main {
@@ -149,6 +149,7 @@ main {
 .plan-content-wrapper {
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: .5rem;
 }
 
