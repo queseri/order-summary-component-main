@@ -93,8 +93,10 @@ select {
     --clr-blue: #382AE1;
     --mobile-spacer: 1.5rem;
     --border-radius: 20px;
-    --font-heading-size: 1.375rem;
+    --font-heading-size-mobile: 1.375rem;
+    --font-heading-size-desktop: 1.75rem;
     --font-content-size: 0.9375rem;
+
 
 }
 
@@ -128,12 +130,14 @@ main {
 
 .plan {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     align-items: center;
     background-color: var(--clr-off-white);
     margin-block: 2.1rem;
     border-radius: 11px;
-    padding: 1rem;
+    padding-block: 1rem;
+    padding-inline: 1.5rem;
 }
 
 .plan-content {
@@ -142,13 +146,23 @@ main {
     color: var(--clr-med-grey);
 }
 
+.plan-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
 .cancel-btn {
     display: block;
     margin: auto;
+    font-size: var(--font-content-size);
+    font-weight: 900;
+    color: var(--clr-dark);
+    text-decoration: none;
 }
 
 .main-title {
-    font-size: var(--font-heading-size);
+    font-size: var(--font-heading-size-mobile);
     font-weight: 900;
     color: var(--clr-dark);
     padding-block-end: .5rem;
@@ -158,25 +172,89 @@ main {
     font-size: 0.875rem;
     font-weight: 900;
     color: var(--clr-dark);
+    margin-bottom: .5rem;
 }
 
 .main-content {
     font-size: var(--font-content-size);
     color: var(--clr-med-grey);
     font-weight: 500;
+    max-width: 22.125rem;
+    margin-inline: auto;
 }
 
 .change-plan-btn {
     text-decoration: none;
     color: var(--clr-blue);
     font-size: 0.8125rem;
+    font-weight: 900;
+    background-color: transparent;
+    border: none;
+    text-decoration: underline;
 }
+
 .proceed-btn {
     background-color: var(--clr-blue);
+    font-size: var(--font-content-size);
+    font-weight: 900;
     color: white;
     padding: .5rem;
     display: block;
     text-decoration: none;
     margin-block-end: 1rem;
     border-radius: 11px;
+}
+
+.change-plan-btn:hover,
+.change-plan-btn:focus,
+.proceed-btn:hover,
+.proceed-btn:focus,
+.cancel-btn:hover,
+.cancel-btn:focus {
+    cursor: pointer;
+    opacity: 0.5;
+}
+
+@media screen and (min-width: 22.5rem) {
+
+    .plan-content-wrapper,
+    .plan {
+        flex-direction: row;
+    }
+}
+
+@media screen and (min-width: 49.375rem) {
+    .main-title {
+        font-size: var(--font-heading-size-desktop);
+        padding-block: 0.825rem;
+    }
+
+    .main-content {
+        font-size: 1rem;
+
+    }
+
+    .plan-title,
+    .plan-content {
+        font-size: 1rem;
+    }
+
+    .change-plan-btn {
+        font-size: 0.875rem;
+    }
+
+    .plan {
+        padding-block: 1.25rem;
+        padding-inline: 1.5rem;
+    }
+
+    .plan-content-wrapper {
+        gap: 2rem;
+    }
+
+    .proceed-btn {
+        padding: 0.9rem;
+        margin-block-end: 2rem;
+    }
+
 }
